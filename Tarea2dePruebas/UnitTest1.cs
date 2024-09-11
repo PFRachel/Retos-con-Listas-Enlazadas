@@ -17,7 +17,7 @@ namespace Tarea2
             lista.InsertInOrder(20);
 
             // Assert
-            Assert.AreEqual(10, lista.GetMiddle(), "El valor del medio deber�a ser 10");
+            Assert.AreEqual(10, lista.GetMiddle(), "El valor del medio deberia ser 10");
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Tarea2
             var lista = new ListaDoble();
 
             // Act & Assert
-            lista.GetMiddle(); // Debe lanzar una excepci�n porque la lista est� vac�a
+            lista.GetMiddle(); // Debe lanzar una excepcion porque la lista esta vacia
         }
 
         [TestMethod]
@@ -44,8 +44,8 @@ namespace Tarea2
             var eliminado = lista.DeleteFirst();
 
             // Assert
-            Assert.AreEqual(10, eliminado, "El primer nodo eliminado deber�a ser 10");
-            Assert.AreEqual(20, lista.GetMiddle(), "El nuevo valor del medio deber�a ser 20");
+            Assert.AreEqual(10, eliminado, "El primer nodo eliminado deberia ser 10");
+            Assert.AreEqual(20, lista.GetMiddle(), "El nuevo valor del medio deberia ser 20");
         }
 
         [TestMethod]
@@ -61,8 +61,8 @@ namespace Tarea2
             var eliminado = lista.DeleteLast();
 
             // Assert
-            Assert.AreEqual(30, eliminado, "El �ltimo nodo eliminado deber�a ser 30");
-            Assert.AreEqual(20, lista.GetMiddle(), "El nuevo valor del medio deber�a ser 20");
+            Assert.AreEqual(30, eliminado, "El ultimo nodo eliminado deberia ser 30");
+            Assert.AreEqual(20, lista.GetMiddle(), "El nuevo valor del medio deberia ser 20");
         }
 
         [TestMethod]
@@ -78,8 +78,8 @@ namespace Tarea2
             var eliminado = lista.DeleteValue(20);
 
             // Assert
-            Assert.IsTrue(eliminado, "El valor 20 deber�a haberse eliminado correctamente");
-            Assert.AreEqual(10, lista.GetMiddle(), "El nuevo valor del medio deber�a ser 10");
+            Assert.IsTrue(eliminado, "El valor 20 deberia haberse eliminado correctamente");
+            Assert.AreEqual(10, lista.GetMiddle(), "El nuevo valor del medio deberia ser 10");
         }
 
         [TestMethod]
@@ -94,7 +94,7 @@ namespace Tarea2
             var eliminado = lista.DeleteValue(30);
 
             // Assert
-            Assert.IsFalse(eliminado, "El valor 30 no deber�a existir en la lista");
+            Assert.IsFalse(eliminado, "El valor 30 no deberia existir en la lista");
         }
 
         [TestMethod]
@@ -110,7 +110,7 @@ namespace Tarea2
             lista.Invert();
 
             // Assert
-            Assert.AreEqual(2, lista.GetMiddle(), "Despu�s de invertir, el valor medio deber�a ser 2");
+            Assert.AreEqual(2, lista.GetMiddle(), "Despues de invertir, el valor medio deberia ser 2");
         }
 
         [TestMethod]
@@ -130,7 +130,7 @@ namespace Tarea2
             listaA.MergeSorted(listaA, listaB, SortDirection.Ascendente);
 
             // Assert
-            Assert.AreEqual(3, listaA.GetMiddle(), "Despu�s de mezclar, el valor medio deber�a ser 3");
+            Assert.AreEqual(3, listaA.GetMiddle(), "Despues de mezclar, el valor medio deberia ser 3");
         }
 
         [TestMethod]
@@ -143,7 +143,7 @@ namespace Tarea2
             listaB.InsertInOrder(1);
 
             // Act & Assert
-            new ListaDoble().MergeSorted(listaA, listaB, SortDirection.Ascendente); // Debe lanzar una excepci�n
+            new ListaDoble().MergeSorted(listaA, listaB, SortDirection.Ascendente); // Debe lanzar una excepcion
         }
 
         [TestMethod]
@@ -162,7 +162,7 @@ namespace Tarea2
             listaA.MergeSorted(listaA, listaB, SortDirection.Descendente);
 
             // Assert
-            Assert.AreEqual(15, listaA.GetMiddle(), "Despu�s de mezclar en orden descendente, el valor medio deber�a ser 15");
+            Assert.AreEqual(15, listaA.GetMiddle(), "Despues de mezclar en orden descendente, el valor medio deberia ser 15");
         }
     }
 }

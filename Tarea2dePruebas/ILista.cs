@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Tarea2;
 
 namespace Tarea2
-{
+{ // Definicion de la interface IList 
     public interface IList
     {
         void InsertInOrder(int value);
@@ -14,8 +14,7 @@ namespace Tarea2
         int DeleteLast();
         bool DeleteValue(int value);
         int GetMiddle();
-        void MergeSorted(IList listA, IList listB, SortDirection direction);
+        void MergeSorted(ListaDoble listA, ListaDoble listB, SortDirection direction);
     }
-
 }
 
