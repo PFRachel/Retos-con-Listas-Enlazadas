@@ -15,9 +15,9 @@ namespace Tarea2
     }
     public class ListaDoble : IList
     { //Clase de lista doble heredando de IList
-        private Nodo cabeza;
-        private Nodo cola;
-        private Nodo medio;  // Referencia para manejar el nodo central
+        private Nodo? cabeza;
+        private Nodo? cola;
+        private Nodo? medio;  // Referencia para manejar el nodo central
         private int tamaño;  // Contador de nodos
         public ListaDoble()
         {
@@ -80,7 +80,7 @@ namespace Tarea2
             else
             {
                 cabeza = cabeza.Siguiente;
-                cabeza.Anterior = null;
+                if (cabeza != null) cabeza.Anterior= null;
             }
             tamaño--;
             ActualizarMedio();
@@ -204,6 +204,8 @@ namespace Tarea2
             // Actualizar listA con la lista fusionada
             listA.cabeza = mergedList.cabeza;
             listA.cola = mergedList.cola;
+            listA.ActualizarMedio();//actualiza nodo central 
+
         }
         //
         //PROBLEMA #2: INVERTIR LISTA
@@ -237,13 +239,20 @@ namespace Tarea2
                 medio = null;
                 return;
             }
-            Nodo actual = cabeza;
-            int pasos = tamaño / 2;
-            for (int i = 0; i < pasos; i++)
+            if (tamaño == 1)
             {
-                actual = actual.Siguiente;
+                medio = cabeza;
+                return;
             }
-            medio = actual;
+            Nodo actual = medio;
+            if (tamaño % 2 == 0) // Si el tamaño es par, moverse un nodo hacia atrás
+            {
+                medio = medio.Anterior;
+            }
+            else // Si el tamaño es impar, moverse un nodo hacia adelante
+            {
+                medio = medio.Siguiente;
+            }
         }
     }
 }

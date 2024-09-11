@@ -48,7 +48,6 @@ namespace Tarea2
             Assert.AreEqual(20, lista.GetMiddle(), "El nuevo valor del medio deberia ser 20");
         }
 
-        [TestMethod]
         public void DeleteLast_EliminaElUltimoNodoCorrectamente()
         {
             // Arrange
