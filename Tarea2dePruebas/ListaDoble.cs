@@ -157,9 +157,14 @@ namespace Tarea2
             // Lógica para fusionar en orden ascendente
             if (direction == SortDirection.Ascendente)
             {
-                while (currentA != null && currentB != null)
+                while (currentA != null || currentB != null)
                 {
-                    if (currentA.Valor <= currentB.Valor)
+                    if (currentA == null)
+                    {
+                        mergedList.InsertInOrder(currentB.Valor);
+                        currentB = currentB.Siguiente;
+                    }
+                    else if (currentB == null || currentA.Valor<= currentB.Valor)
                     {
                         mergedList.InsertInOrder(currentA.Valor);
                         currentA = currentA.Siguiente;
@@ -172,11 +177,16 @@ namespace Tarea2
                 }
             }
             // Lógica para fusionar en orden descendente
-            else if (direction == SortDirection.Descendente)
+            else  //descendente
             {
-                while (currentA != null && currentB != null)
+                while(currentA != null || currentB != null)
                 {
-                    if (currentA.Valor >= currentB.Valor)
+                    if(currentA == null)
+                    {
+                        mergedList.InsertInOrder(currentB.Valor);
+                        currentB = currentB.Siguiente;
+                    }
+                    else if (currentB == null || currentA.Valor >= currentB.Valor)
                     {
                         mergedList.InsertInOrder(currentA.Valor);
                         currentA = currentA.Siguiente;
@@ -186,24 +196,14 @@ namespace Tarea2
                         mergedList.InsertInOrder(currentB.Valor);
                         currentB = currentB.Siguiente;
                     }
+                    
                 }
             }
-            // Si quedan elementos en listA
-            while (currentA != null)
-            {
-                mergedList.InsertInOrder(currentA.Valor);
-                currentA = currentA.Siguiente;
-            }
-            // Si quedan elementos en listB
-            while (currentB != null)
-            {
-                mergedList.InsertInOrder(currentB.Valor);
-                currentB = currentB.Siguiente;
-            }
-
+                
             // Actualizar listA con la lista fusionada
             listA.cabeza = mergedList.cabeza;
             listA.cola = mergedList.cola;
+            listA.tamaño = mergedList.tamaño;
             listA.ActualizarMedio();//actualiza nodo central 
 
         }
